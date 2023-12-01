@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { ContextGlobal } from "./utils/global.context";
+import { useContext } from "react";
 
 const Form = () => {
 
@@ -12,6 +14,10 @@ const Form = () => {
   }, [nombre, email]);
 
  
+  const { state } = useContext(ContextGlobal);
+  const { theme } = state;
+  const themeClass = theme === "light" ? "light" : "dark";
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,6 +41,7 @@ const Form = () => {
 
   return (
     <>
+    <div className={themeClass}>
       <form onSubmit={handleSubmit}>
         <label htmlFor="">Nombre: </label>
         <input
@@ -62,7 +69,7 @@ const Form = () => {
       {mensaje && <p style={{ color: "blue" }}>{mensaje}</p>}
     
 
-
+      </div>
 
     </>
   );
