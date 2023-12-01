@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import doctor from "../images/doctor.jpg";
-import { ContextGlobal } from "./utils/global.context";
-import { useContext } from "react";
 
 const Card = ({ name, username, id }) => {
-  const { state } = useContext(ContextGlobal);
-  const { theme } = state;
-  const themeClass = theme === "light" ? "light" : "dark";
 
   const addFav = () => {
     // Aqui iria la logica para agregar la Card en el localStorage
@@ -40,7 +35,7 @@ const Card = ({ name, username, id }) => {
   };
 
   return (
-    <div className={themeClass}>
+    <div >
       <div className="card-grid">
         {card.map((obj) => (
           <li className="card">

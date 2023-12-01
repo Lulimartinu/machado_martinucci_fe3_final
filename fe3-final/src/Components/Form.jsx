@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { ContextGlobal } from "./utils/global.context";
-import { useContext } from "react";
 
 const Form = () => {
 
@@ -13,10 +11,6 @@ const Form = () => {
     setError("");
   }, [nombre, email]);
 
- 
-  const { state } = useContext(ContextGlobal);
-  const { theme } = state;
-  const themeClass = theme === "light" ? "light" : "dark";
 
 
   const handleSubmit = (e) => {
@@ -41,7 +35,7 @@ const Form = () => {
 
   return (
     <>
-    <div className={themeClass}>
+    <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="">Nombre: </label>
         <input
